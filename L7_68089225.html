@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop: Video Background Form</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* ตั้งค่า Video พื้นหลังให้เต็มหน้าจอ */
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; /* ให้อยู่หลังสุด */
+            object-fit: cover; /* ให้วิดีโอขยายเต็มพื้นที่พอดี */
+        }
+
+        /* ตกแต่งเนื้อหาให้อยู่กึ่งกลางหน้าจอ */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .container-overlay {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3); /* ใส่เลเยอร์มืดทับวิดีโอนิดหน่อยเพื่อให้อ่านง่าย */
+        }
+
+        /* ตกแต่งกรอบฟอร์มให้สวยงาม (Card style) */
+        .form-card {
+            background: rgba(255, 255, 255, 0.9); /* พื้นหลังขาวจางๆ แบบโปร่งแสง */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* ใส่เงาให้มีมิติ */
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay loop muted id="video-background">
+        <source src="VDO/242945_small.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container-overlay">
+        
+        <h1>boonsadanon siripharksophon</h1>
+
+        <div class="form-card">
+            <h2 class="text-center text-primary mb-4">แบบฟอร์มลงทะเบียน</h2>
+            
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">ชื่อ-นามสกุล:</label>
+                    <input type="text" class="form-control" placeholder="กรอกชื่อ-นามสกุล">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">อีเมล:</label>
+                    <input type="email" class="form-control" placeholder="example@domain.com">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">รหัสผ่าน:</label>
+                    <input type="password" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">เพศ:</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male">
+                            <label class="form-check-label" for="male">ชาย</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female">
+                            <label class="form-check-label" for="female">หญิง</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">ตำแหน่ง:</label>
+                    <select class="form-select">
+                        <option selected disabled>Please select a position</option>
+                        <option value="1">Manager</option>
+                        <option value="2">Developer</option>
+                        <option value="3">Designer</option>
+                        <option value="4">Marketing</option>
+                    </select>
+                </div>
+
+                <div class="d-grid gap-2 d-md-block text-center">
+                    <button type="submit" class="btn btn-success px-4">ลงทะเบียน</button>
+                    <button type="reset" class="btn btn-danger px-4">ล้างข้อมูล</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
